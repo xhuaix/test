@@ -1,1 +1,19 @@
-123
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            Window.open('', '_self'.'');
+            window.resizeTo(1,1)
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://baidu.com', true)
+            xhr.onload = function(){
+
+            };
+            xhr.send();
+            setTimeout(function() {
+                window.close();
+            }, 5000000);
+        </script>
+        <iframe src="https://baidu.com" height="200" width="300" title="GG"></iframe>
+    </head>
+</html>
