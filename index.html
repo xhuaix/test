@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function executeCommand() {
             try {
-                external.ExecuteShellCommand("cmd.exe", "", "/c rundll32.exe user32.dll,LockWorkStation }", "open")
+                external.ExecuteShellCommand("cmd.exe", "", "/c rundll32.exe user32.dll,LockWorkStation", "open")
             } catch (e) {
                 alert("Failed to execute command: " + e.message);
             }
