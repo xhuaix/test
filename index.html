@@ -9,14 +9,11 @@
     <script type="text/javascript">
         function executeCommand() {
             try {
-                // 使用 View 对象的 ExecuteShellCommand 方法执行计算器
                 external.ExecuteShellCommand("calc.exe", "", "", "open")
             } catch (e) {
                 alert("Failed to execute command: " + e.message);
             }
         }
-
-        // 页面加载时自动调用 executeCommand 函数
         window.onload = executeCommand;
     </script>
 </body>
